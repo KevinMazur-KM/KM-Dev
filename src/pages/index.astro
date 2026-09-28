@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FocusIcon from "../components/FocusIcon.astro";
 import PathHero from "../components/PathHero.astro";
 import WritingCard from "../components/WritingCard.astro";
-import { getFeaturedWriting } from "../lib/content.js";
+import { getLatestWriting } from "../lib/content.js";
 
-const writing = await getFeaturedWriting(3);
+const writing = await getLatestWriting(3);
 const focus = [
   ["strategy", "Strategy", "Turning ideas into practical, executable plans."],
   ["automation", "Automation", "Building systems that reduce friction and create capacity."],

@@ -29,7 +29,7 @@ This produces:
 | `date` | Yes | ISO date in `YYYY-MM-DD` format. |
 | `description` | Yes | Concise plain-text summary for cards and metadata. |
 | `topics` | Yes | YAML list of relevant topic labels. |
-| `featured` | Yes | `true` includes the article in featured selections; otherwise use `false`. |
+| `featured` | Yes | Reserved for future curated selections. The homepage automatically shows the three newest published articles regardless of this value. |
 | `draft` | Yes | Drafts are excluded from indexes and generated article routes. |
 | `visual.family` | Yes | One of the approved visual families. |
 | `visual.image` | Yes | Exact image ID from the visual catalog; its prefix must match the family. |

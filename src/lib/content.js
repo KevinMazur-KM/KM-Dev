@@ -12,6 +12,10 @@ export async function getFeaturedWriting(limit = 3) {
   return (await getPublishedWriting()).filter((item) => item.data.featured).slice(0, limit);
 }
 
+export async function getLatestWriting(limit = 3) {
+  return (await getPublishedWriting()).slice(0, limit);
+}
+
 export async function getPublishedWork() {
   return (await getCollection("work", ({ data }) => !data.draft)).sort(byNewest);
 }
@@ -25,6 +29,7 @@ export function formatDate(date) {
     month: "short",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
 
