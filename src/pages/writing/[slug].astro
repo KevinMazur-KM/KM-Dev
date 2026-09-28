@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PathGraphic from "../../components/PathGraphic.astro";
 import WritingCard from "../../components/WritingCard.astro";
@@ -7,7 +7,7 @@ import { formatDate, getPublishedWriting, readingTime } from "../../lib/content.
 
 export async function getStaticPaths() {
   const entries = await getCollection("writing", ({ data }) => !data.draft);
-  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  return entries.map((entry: CollectionEntry<"writing">) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;

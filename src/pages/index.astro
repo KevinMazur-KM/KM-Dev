@@ -3,14 +3,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FocusIcon from "../components/FocusIcon.astro";
 import PathHero from "../components/PathHero.astro";
 import WritingCard from "../components/WritingCard.astro";
+import type { CollectionEntry } from "astro:content";
 import { getLatestWriting } from "../lib/content.js";
 
 const writing = await getLatestWriting(3);
 const focus = [
-  ["strategy", "Strategy", "Turning ideas into practical, executable plans."],
-  ["automation", "Automation", "Building systems that reduce friction and create capacity."],
-  ["ai", "AI Enablement", "Helping organizations adopt AI with purpose and governance."],
-  ["people", "People & Systems", "Connecting people, technology, and process to drive impact."],
+  ["strategy", "Technology Leadership", "Leading IT, GIS, data, web platforms, and emerging technology in public service."],
+  ["automation", "Automation", "Introduced RPA that increased operational efficiency by 25% and shifted capacity to higher-value work."],
+  ["ai", "AI Adoption", "Launched a structured generative AI pilot and am developing an AI policy and implementation roadmap."],
+  ["people", "Technology at Scale", "Scaled technology through growth from 50 to more than 350 employees across seven locations."],
 ];
 ---
 
@@ -19,9 +20,9 @@ const focus = [
     <div class="hero-copy reveal">
       <p class="kicker">Technology Leadership <span>/</span> AI <span>/</span> Automation</p>
       <h1>I make<br />emerging<br /><span class="hero-nowrap">technology</span><br /><span>useful.</span></h1>
-      <p class="hero-lede">I lead and build practical systems across AI, automation, enterprise technology, and organizational change.</p>
+      <p class="hero-lede">I lead enterprise technology in public service, build GIS and automation platforms, and guide responsible AI adoption.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="/work/">Explore My Work <span aria-hidden="true">→</span></a>
+        <a class="button button-primary" href="/about/#experience">View My Experience <span aria-hidden="true">→</span></a>
         <a class="button button-secondary" href="/writing/">Read My Writing</a>
       </div>
       <p class="hero-taxonomy">People <span>/</span> Systems <span>/</span> Ideas <span>/</span> Impact</p>
@@ -51,7 +52,7 @@ const focus = [
       <a class="text-link" href="/writing/">View All Writing <span aria-hidden="true">→</span></a>
     </div>
     <div class="card-grid">
-      {writing.map((entry) => <WritingCard entry={entry} />)}
+      {writing.map((entry: CollectionEntry<"writing">) => <WritingCard entry={entry} />)}
     </div>
   </section>
 </BaseLayout>

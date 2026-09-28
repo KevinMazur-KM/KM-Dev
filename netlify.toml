@@ -4,3 +4,13 @@ publish = "dist"
 
 [build.environment]
 NODE_VERSION = "22"
+
+[[redirects]]
+from = "/work"
+to = "/about/#experience"
+status = 301
+
+[[redirects]]
+from = "/work/*"
+to = "/about/#experience"
+status = 301

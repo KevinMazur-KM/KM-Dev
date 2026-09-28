@@ -165,8 +165,7 @@ a {
   border-right: 1px solid var(--color-line);
 }
 
-.social-link,
-.search-link {
+.social-link {
   display: grid;
   width: 2.35rem;
   height: 2.35rem;
@@ -180,15 +179,13 @@ a {
   color: var(--color-orange);
 }
 
-.social-link:hover,
-.search-link:hover {
+.social-link:hover {
   color: var(--color-orange-dark);
   background: var(--color-soft);
   transform: translateY(-1px);
 }
 
-.social-link:focus-visible,
-.search-link:focus-visible {
+.social-link:focus-visible {
   outline: 2px solid var(--color-orange);
   outline-offset: 2px;
 }
@@ -207,18 +204,6 @@ a {
   stroke-width: 1.65;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.search-link {
-  color: var(--color-ink);
-}
-
-.search-link svg {
-  width: 1.25rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
 }
 
 .button {
@@ -1144,11 +1129,6 @@ a {
 
   .brand-link {
     width: 160px;
-  }
-
-  .search-link {
-    width: 2rem;
-    height: 2rem;
   }
 
   .social-links {
