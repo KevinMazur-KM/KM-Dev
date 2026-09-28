@@ -10,8 +10,8 @@ const writing = await getPublishedWriting();
 <BaseLayout title="Writing | Kevin Mazur" description="Writing from Kevin Mazur on AI, automation, technology leadership, and organizational transformation.">
   <section class="page-hero writing-index-hero section-band">
     <p class="kicker">Writing</p>
-    <h1>Substantive notes on building what comes next.</h1>
-    <p>Personal accounts of decisions, experiments, tradeoffs, and lessons from building technology in real organizations.</p>
+    <h1>A place to think out loud.</h1>
+    <p>I write about the problems I’m working through, the choices I make, and what I learn when those choices meet the real world. Some ideas are settled. Others are still taking shape.</p>
   </section>
   <section class="index-grid writing-index-grid section-band">
     {writing.map((entry: CollectionEntry<"writing">) => <WritingCard entry={entry} />)}
