@@ -1,0 +1,15 @@
+---
+type FocusType = "strategy" | "automation" | "ai" | "people";
+const { type = "strategy" } = Astro.props as { type?: FocusType };
+const paths = {
+  strategy: ["M18 28 C18 18 26 10 38 10 C50 10 58 18 58 28 C58 36 54 42 48 47 V56 H28 V47 C22 42 18 36 18 28Z", "M32 64 H44", "M34 72 H42"],
+  automation: ["M38 8 V18", "M38 58 V68", "M8 38 H18", "M58 38 H68", "M17 17 L24 24", "M52 52 L59 59", "M59 17 L52 24", "M24 52 L17 59", "M22 38 A16 16 0 1 0 54 38 A16 16 0 1 0 22 38"],
+  ai: ["M20 54 L38 64 L56 54 L38 44 Z", "M20 38 L38 48 L56 38 L38 28 Z", "M20 22 L38 32 L56 22 L38 12 Z"],
+  people: ["M22 64 C22 52 30 46 38 46 C46 46 54 52 54 64", "M28 28 A10 10 0 1 0 48 28 A10 10 0 1 0 28 28", "M12 62 C12 54 18 50 25 50", "M51 50 C58 50 64 54 64 62"],
+};
+---
+
+<svg class="focus-icon" viewBox="0 0 76 76" aria-hidden="true">
+  <circle cx="38" cy="38" r="30" />
+  {paths[type].map((d: string, index: number) => <path class={index === 0 ? "accent-detail" : ""} d={d} />)}
+</svg>

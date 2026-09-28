@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WritingCard from "../../components/WritingCard.astro";
+import { getPublishedWriting } from "../../lib/content.js";
+
+const writing = await getPublishedWriting();
+---
+
+<BaseLayout title="Writing | Kevin Mazur" description="Writing from Kevin Mazur on AI, automation, technology leadership, and organizational transformation.">
+  <section class="page-hero writing-index-hero section-band">
+    <p class="kicker">Writing</p>
+    <h1>Substantive notes on building what comes next.</h1>
+    <p>Not a blog feed. A place for practical thinking about AI, automation, leadership, and systems that can survive contact with reality.</p>
+  </section>
+  <section class="index-grid writing-index-grid section-band">
+    {writing.map((entry) => <WritingCard entry={entry} />)}
+  </section>
+</BaseLayout>

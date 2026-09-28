@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="Kevin Mazur dot dev logo">
+ <g transform="translate(0,-10) scale(.88)"><path d="M28 244 C82 198 126 207 163 181 C188 164 193 137 197 104 L222 104 C219 150 212 185 181 207 C137 238 89 228 47 268 Z" fill="#111820"/><path d="M28 197 C78 157 119 167 153 145 C176 130 183 111 188 84 L210 84 C207 119 197 149 169 167 C129 193 86 183 47 221 Z" fill="#5E6871"/><path d="M28 151 C74 116 113 124 145 106 C167 94 176 78 183 59 L203 59 C198 87 185 111 159 126 C122 148 82 139 47 175 Z" fill="#A9B0B5"/><path d="M197 104 C201 74 214 51 234 31 L287 31 L246 72 C230 88 222 105 220 129 C216 168 205 191 181 207 L163 181 C185 166 192 145 197 104 Z" fill="#FF6A00"/></g>
+ <text x="300" y="130" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="82" letter-spacing="2" fill="#111820">KEVIN</text>
+ <text x="300" y="215" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="82" letter-spacing="2" fill="#111820">MAZUR</text>
+ <text x="302" y="273" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="48" letter-spacing="8" fill="#FF6A00">.DEV</text>
+</svg>

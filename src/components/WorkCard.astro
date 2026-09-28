@@ -1,0 +1,18 @@
+---
+import PathGraphic from "./PathGraphic.astro";
+const { entry } = Astro.props;
+---
+
+<article class="content-card work-card">
+  <a href={`/work/${entry.id}/`} aria-label={`View ${entry.data.title}`}>
+    <PathGraphic family={entry.data.visual.family} image={entry.data.visual.image} />
+    <div class="card-body">
+      <p class="card-meta">{entry.data.type.replace("-", " ")}</p>
+      <h3>{entry.data.title}</h3>
+      <p>{entry.data.description}</p>
+      <span class="tag-row">
+        {entry.data.tags.slice(0, 3).map((tag: string) => <span>{tag}</span>)}
+      </span>
+    </div>
+  </a>
+</article>

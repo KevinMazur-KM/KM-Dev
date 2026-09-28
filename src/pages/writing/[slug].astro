@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PathGraphic from "../../components/PathGraphic.astro";
+import WritingCard from "../../components/WritingCard.astro";
+import { formatDate, getPublishedWriting, readingTime } from "../../lib/content.js";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("writing", ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const pageEntry: any = entry;
+const { Content } = await render(entry);
+const related = (await getPublishedWriting()).filter((item: any) => item.id !== pageEntry.id).slice(0, 2);
+---
+
+<BaseLayout title={`${pageEntry.data.title} | Kevin Mazur`} description={pageEntry.data.description} canonical={`/writing/${pageEntry.id}/`} type="article">
+  <article class="article-page">
+    <header class="article-header section-band">
+      <p class="kicker">Writing <span>/</span> {formatDate(pageEntry.data.date)} <span>/</span> {readingTime(pageEntry.body)}</p>
+      <div class="article-title-block">
+        <h1>{pageEntry.data.title}</h1>
+        <p>{pageEntry.data.description}</p>
+        <div class="topic-row">{pageEntry.data.topics.map((topic: string) => <span>{topic}</span>)}</div>
+      </div>
+      <PathGraphic family={pageEntry.data.visual.family} image={pageEntry.data.visual.image} loading="eager" fetchpriority="high" />
+    </header>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+  {related.length > 0 && (
+    <section class="related-section section-band" aria-labelledby="related-heading">
+      <div class="section-intro">
+        <p class="eyebrow">Related Writing</p>
+        <h2 id="related-heading">Keep going.</h2>
+      </div>
+      <div class="card-grid compact">
+        {related.map((item: any) => <WritingCard entry={item} />)}
+      </div>
+    </section>
+  )}
+</BaseLayout>

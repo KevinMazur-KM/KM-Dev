@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PathGraphic from "../../components/PathGraphic.astro";
+import { formatDate } from "../../lib/content.js";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("work", ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const pageEntry: any = entry;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${pageEntry.data.title} | Kevin Mazur`} description={pageEntry.data.description} canonical={`/work/${pageEntry.id}/`}>
+  <article class="article-page work-detail">
+    <header class="article-header section-band">
+      <div>
+        <p class="kicker">Work <span>/</span> {pageEntry.data.type.replace("-", " ")} <span>/</span> {formatDate(pageEntry.data.date)}</p>
+        <h1>{pageEntry.data.title}</h1>
+        <p>{pageEntry.data.description}</p>
+        <div class="topic-row">{pageEntry.data.tags.map((tag: string) => <span>{tag}</span>)}</div>
+      </div>
+      <PathGraphic family={pageEntry.data.visual.family} image={pageEntry.data.visual.image} loading="eager" fetchpriority="high" />
+    </header>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

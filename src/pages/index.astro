@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FocusIcon from "../components/FocusIcon.astro";
+import PathHero from "../components/PathHero.astro";
+import WritingCard from "../components/WritingCard.astro";
+import { getFeaturedWriting } from "../lib/content.js";
+
+const writing = await getFeaturedWriting(3);
+const focus = [
+  ["strategy", "Strategy", "Turning ideas into practical, executable plans."],
+  ["automation", "Automation", "Building systems that reduce friction and create capacity."],
+  ["ai", "AI Enablement", "Helping organizations adopt AI with purpose and governance."],
+  ["people", "People & Systems", "Connecting people, technology, and process to drive impact."],
+];
+---
+
+<BaseLayout>
+  <section class="hero-section section-band">
+    <div class="hero-copy reveal">
+      <p class="kicker">Technology Leadership <span>/</span> AI <span>/</span> Automation</p>
+      <h1>I make<br />emerging<br /><span class="hero-nowrap">technology</span><br /><span>useful.</span></h1>
+      <p class="hero-lede">I lead and build practical systems across AI, automation, enterprise technology, and organizational change.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/work/">Explore My Work <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="/writing/">Read My Writing</a>
+      </div>
+      <p class="hero-taxonomy">People <span>/</span> Systems <span>/</span> Ideas <span>/</span> Impact</p>
+    </div>
+    <div class="hero-art reveal" style="--delay: 120ms">
+      <PathHero />
+    </div>
+  </section>
+
+  <section class="focus-strip" aria-labelledby="focus-heading">
+    <h2 id="focus-heading" class="sr-only">Areas of focus</h2>
+    {focus.map(([type, title, text]) => (
+      <article class="focus-item reveal">
+        <FocusIcon type={type} />
+        <h3>{title}</h3>
+        <p>{text}</p>
+        <a href="/about/" aria-label={`Learn more about ${title}`}>→</a>
+      </article>
+    ))}
+  </section>
+
+  <section class="writing-preview section-band" aria-labelledby="writing-heading">
+    <div class="section-intro reveal">
+      <p class="eyebrow">Latest Writing</p>
+      <h2 id="writing-heading">Ideas for a more capable tomorrow.</h2>
+      <p>Thoughts on AI, technology, leadership, and building systems that work in the real world.</p>
+      <a class="text-link" href="/writing/">View All Writing <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="card-grid">
+      {writing.map((entry) => <WritingCard entry={entry} />)}
+    </div>
+  </section>
+</BaseLayout>

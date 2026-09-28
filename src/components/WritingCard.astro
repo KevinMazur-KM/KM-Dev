@@ -1,0 +1,18 @@
+---
+import PathGraphic from "./PathGraphic.astro";
+import { formatDate } from "../lib/content.js";
+
+const { entry } = Astro.props;
+---
+
+<article class="content-card writing-card">
+  <a href={`/writing/${entry.id}/`} aria-label={`Read ${entry.data.title}`}>
+    <PathGraphic family={entry.data.visual.family} image={entry.data.visual.image} />
+    <div class="card-body">
+      <p class="card-meta">{formatDate(entry.data.date)}</p>
+      <h3>{entry.data.title}</h3>
+      <p>{entry.data.description}</p>
+      <span class="arrow-link" aria-hidden="true">→</span>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,22 @@
+---
+const {
+  family = "systems",
+  image = "systems-01",
+  class: className = "",
+  loading = "lazy",
+  fetchpriority = "auto",
+} = Astro.props;
+---
+
+<img
+  class:list={["path-graphic", className]}
+  src={`/graphics/writing/${image}.svg`}
+  width="520"
+  height="240"
+  alt=""
+  aria-hidden="true"
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+  data-visual-family={family}
+/>
