@@ -1,6 +1,6 @@
 ---
 title: "Why an AI Interviews Me Before I Write Anything"
-date: 2026-09-29
+date: 2026-09-21
 description: "How an AI interview helps turn ideas into finished writing, with Cooper handling the conversation and Gutenberg handling publication."
 topics:
   - "Artificial Intelligence"
