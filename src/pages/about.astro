@@ -2,14 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const metrics = [
-  ["22+", "Years leading technology and transformation"],
-  ["60%", "Faster site evaluation through a purpose-built GIS platform"],
-  ["30%", "Reduction in IT operating costs through cloud modernization"],
-  ["45%", "Reduction in operating expenses during organizational stabilization"],
+  ["22+", "Years leading technology and transformation", "experience", "Career timeline"],
+  ["10+", "Servers migrated to Azure, along with production storage", "vantage-point-title", "Vantage Point Title"],
 ];
 
 const roles = [
   {
+    id: "hcpa",
     title: "Manager Enterprise Technology",
     organization: "Hillsborough County Property Appraiser",
     location: "Tampa, Florida",
@@ -19,11 +18,12 @@ const roles = [
       "Direct digital transformation across public-facing property applications, internal operational systems, infrastructure planning, data integration, and service-management modernization.",
       "Launched a structured generative AI pilot for eight employees, including platform evaluation, onboarding, weekly feedback, adoption measurement, and executive reporting.",
       "Developing the organization’s AI policy and implementation roadmap around responsible use, security, governance, public-record obligations, training, and scalable adoption.",
-      "Developed the strategy and agentic architecture for an AI-native technology management platform designed to connect initiatives, operational work, systems, decisions, and organizational knowledge.",
-      "Partner with executive leadership, technology staff, vendors, and business stakeholders to turn organizational needs into prioritized initiatives and sustainable operating practices.",
+      "Built Helix, an internal technology management platform, with AI assistance. Early use includes change records, and another team member extended the system with a Vendors and Contracts section.",
+      "Partner with executive leadership, technology staff, vendors, and business stakeholders to prioritize projects and establish practices that support ongoing work.",
     ],
   },
   {
+    id: "florida-land-design",
     title: "GIS and IT Manager",
     organization: "Florida Land Design and Permitting",
     location: "New Port Richey, Florida",
@@ -31,50 +31,46 @@ const roles = [
     summary: "Established the technology and GIS foundation for a growing land-development and engineering firm.",
     highlights: [
       "Aligned infrastructure, applications, data, security, and user support with business growth.",
-      "Designed SiteIQ, a parcel-analysis platform that combined environmental and site constraints into decision-ready scoring, reducing site evaluation time by 60%.",
-      "Built an internal permit-tracking and submittal-management platform that improved cross-functional visibility and reduced project delays by 25%.",
+      "Built SiteIQ with AI to analyze vacant land for development potential, using evaluation criteria provided to me.",
+      "Built a system to track engineering permits from start to finish, including follow-up after issuance, helping staff focus on permits needing priority attention.",
     ],
   },
   {
+    id: "vizionx",
     title: "President and Founder",
     organization: "VizionX",
     location: "Clearwater, Florida",
     dates: "2023 - 2024",
-    summary: "Launched a technology startup, secured initial funding, and built a cross-functional team of more than 25 across technology, operations, and business development.",
+    summary: "Launched a technology startup, secured initial funding, and built a team of more than 25 employees and contractors across technology, operations, and business development.",
     highlights: [],
   },
   {
+    id: "vantage-point-title",
     title: "Director of Information Technology",
     organization: "Vantage Point Title",
     location: "Clearwater, Florida",
     dates: "2012 - 2023",
     summary: "Served as senior technology executive through growth from 50 to more than 350 employees across seven locations.",
     highlights: [
-      "Aligned technology investment with geographic expansion, risk management, service delivery, and a technology budget exceeding $2 million annually.",
-      "Introduced robotic process automation that increased operational efficiency by 25% and shifted staff capacity toward higher-value client work.",
-      "Led migration to hybrid Azure infrastructure, enabling expansion while reducing IT operating costs by 30%.",
+      "Managed a $1 million annual technology budget, aligning investment with geographic expansion, risk management, and service delivery.",
+      "Led robotic process automation in ResWare for repetitive tasks, including moving files between tasks, balancing files, and adding data extracted from documents. Learned the existing workflows, designed new workflows, worked with the vendor to build the bots, and led testing and implementation.",
+      "Designed and managed the full Azure migration project, moving more than 10 servers and production storage.",
       "Established security, incident response, business continuity, and disaster recovery programs that exceeded the requirements of Fortune 50 banking clients.",
       "Led integrations with national lenders and banks, M&A technology due diligence, and vendor strategy.",
       "Helped secure SSAE 16 and ALTA Best Practices certifications, strengthening compliance maturity and competitive positioning.",
     ],
   },
   {
+    id: "national-title-network",
     title: "Chief Information Officer",
     organization: "National Title Network",
     location: "Clearwater, Florida",
     dates: "2010 - 2012",
     summary: "Built and scaled technology operations from startup stage to support more than 300 employees nationwide within 18 months.",
-    highlights: ["Developed policies, processes, and automation that sustained business volume with 30% fewer staff."],
+    highlights: ["Improved workflows within the ResWare application."],
   },
   {
-    title: "Chief Information Officer and Chief Operating Officer",
-    organization: "Isis Cosmetics",
-    location: "Clearwater, Florida",
-    dates: "2008 - 2010",
-    summary: "Led technology and operational stabilization across a multi-location organization, implemented HIPAA controls, reduced operating expenses by 45%, and achieved break-even within five months.",
-    highlights: [],
-  },
-  {
+    id: "capstone-tropical",
     title: "IT Director",
     organization: "Capstone Tropical Holdings",
     location: "New Port Richey, Florida",
@@ -86,42 +82,34 @@ const roles = [
 
 const capabilities: Array<[string, string[]]> = [
   ["Leadership and strategy", ["Enterprise technology leadership", "Product and platform strategy", "Cross-functional leadership", "Vendor evaluation and strategy", "Technology budgeting", "M&A technology due diligence"]],
-  ["Transformation and operations", ["Digital transformation", "Operating-model design", "Change management", "Workflow design", "KPI and ROI definition", "Business continuity"]],
+  ["Transformation and operations", ["Digital transformation", "Team responsibilities and operating processes", "Change management", "Workflow design", "KPI and ROI definition", "Business continuity"]],
   ["AI and automation", ["AI enablement strategy", "Large language models", "Agentic workflows", "Responsible AI governance", "Automation and RPA", "Adoption and training"]],
-  ["Platforms data and risk", ["Cloud and hybrid infrastructure", "Cybersecurity and compliance", "Data and GIS strategy", "Systems integration", "Incident response", "Regulated environments"]],
+  ["Platforms, data, and risk", ["Cloud and hybrid infrastructure", "Cybersecurity and compliance", "Data and GIS strategy", "Systems integration", "Incident response", "Regulated environments"]],
 ];
 ---
 
-<BaseLayout title="Kevin Mazur | Technology Executive Resume" description="Executive resume for Kevin Mazur, a technology leader with more than 22 years of experience across AI, automation, digital transformation, GIS, cloud, and regulated operations.">
+<BaseLayout title="About | Kevin Mazur" description="I lead enterprise technology in public service. My work spans IT operations, GIS, web platforms, data, and AI adoption.">
   <section class="resume-hero section-band">
     <div class="resume-hero-copy">
-      <p class="eyebrow">Executive Resume</p>
+      <p class="eyebrow">About</p>
       <h1>Kevin Mazur</h1>
-      <p class="resume-role-line"><em>Technology Leadership <span>·</span> Artificial Intelligence <span>·</span> Automation <span>·</span> Transformation</em></p>
-      <p class="resume-intro">Technology leader with 22+ years of experience turning emerging technologies into practical organizational capability across government, healthcare, land development, financial services, and other regulated environments.</p>
+      <div class="resume-intro">
+        <p>I lead enterprise technology in public service, with work spanning IT operations, GIS, web platforms, data, and AI adoption. Earlier roles took me through financial services, land development, healthcare, and growing technology organizations.</p>
+        <p>Across those roles, I’ve worked on how systems fit together, how teams use them, and what it takes to keep them useful. This site is where I write about those decisions and what I’m learning as AI changes what I can build.</p>
+      </div>
       <div class="resume-hero-actions">
-        <a class="button button-primary" href="mailto:hello@kevinmazur.dev">Start a Conversation <span aria-hidden="true">→</span></a>
+        <a class="button button-primary" href="mailto:hello@kevinmazur.dev">Email Kevin <span aria-hidden="true">→</span></a>
         <a class="text-link" href="#experience">View Experience <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </section>
 
-  <section class="executive-profile section-band resume-reveal" aria-labelledby="profile-heading">
-    <div class="resume-section-label">
-      <p class="eyebrow">Profile</p>
-      <h2 id="profile-heading">Strategy connected to execution.</h2>
-    </div>
-    <div class="executive-profile-copy">
-      <p>Executive experience spans technology organizations, digital transformation, automation programs, cloud platforms, data and GIS, cybersecurity, compliance, and responsible AI adoption.</p>
-      <p>The through-line is practical: connect technical capability to operating reality, build teams and systems that can sustain the work, and translate investment into measurable organizational outcomes.</p>
-    </div>
-  </section>
-
   <section class="resume-metrics" aria-label="Selected career outcomes">
     <div class="resume-metrics-inner section-band">
-      {metrics.map(([value, label], index) => (
+      {metrics.map(([value, label, anchor, context], index) => (
         <div class="resume-metric resume-reveal" style={`--resume-delay: ${index * 80}ms`}>
           <strong>{value}</strong><span>{label}</span>
+          <a class="metric-context" href={`#${anchor}`}>{context}</a>
         </div>
       ))}
     </div>
@@ -131,13 +119,13 @@ const capabilities: Array<[string, string[]]> = [
     <header class="resume-section-heading resume-reveal">
       <p class="eyebrow">Experience</p>
       <h2 id="experience-heading">A career spent building capacity.</h2>
-      <p>Technology leadership across growth, modernization, risk, operations, and emerging capability.</p>
+      <p>The roles, responsibilities, and projects behind my work.</p>
     </header>
     <div class="career-timeline-wrap">
       <span class="career-line-progress" aria-hidden="true"></span>
       <ol class="career-timeline">
         {roles.map((role, index) => (
-          <li class="resume-role resume-reveal" style={`--resume-delay: ${Math.min(index * 45, 180)}ms`}>
+          <li id={role.id} class="resume-role resume-reveal" style={`--resume-delay: ${Math.min(index * 45, 180)}ms`}>
             <span class="career-marker" aria-hidden="true"></span>
             <article>
               <header class="role-header">

@@ -8,10 +8,10 @@ import { getLatestWriting } from "../lib/content.js";
 
 const writing = await getLatestWriting(3);
 const focus = [
-  ["strategy", "Technology Leadership", "Leading IT, GIS, data, web platforms, and emerging technology in public service."],
-  ["automation", "Automation", "Introduced RPA that increased operational efficiency by 25% and shifted capacity to higher-value work."],
-  ["ai", "AI Adoption", "Launched a structured generative AI pilot and am developing an AI policy and implementation roadmap."],
-  ["people", "Technology at Scale", "Scaled technology through growth from 50 to more than 350 employees across seven locations."],
+  ["strategy", "Technology Leadership", "Leading IT, GIS, data, web platforms, and emerging technology in public service.", "hcpa"],
+  ["automation", "Automation", "Designed workflows to automate repetitive tasks in ResWare, worked with the vendor to build bots, and led testing and implementation.", "vantage-point-title"],
+  ["ai", "AI Adoption", "Launched a structured generative AI pilot and am developing an AI policy and implementation roadmap.", "hcpa"],
+  ["people", "Technology at Scale", "Scaled technology through growth from 50 to more than 350 employees across seven locations.", "vantage-point-title"],
 ];
 ---
 
@@ -19,29 +19,17 @@ const focus = [
   <section class="hero-section section-band">
     <div class="hero-copy reveal">
       <p class="kicker">Technology Leadership <span>/</span> AI <span>/</span> Automation</p>
-      <h1>I turn ideas<br />into systems<br /><span class="hero-nowrap">people can</span><br /><span>use.</span></h1>
+      <h1>I turn ideas<br /><span class="hero-nowrap">into systems</span><br /><span class="hero-nowrap">people can</span><br /><span>use.</span></h1>
       <p class="hero-lede">I lead enterprise technology in public service, build GIS and automation platforms, and guide responsible AI adoption.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="/about/#experience">View My Experience <span aria-hidden="true">→</span></a>
-        <a class="button button-secondary" href="/writing/">Read My Writing</a>
+        <a class="button button-primary" href="/writing/">Read My Writing <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="/about/#experience">View My Experience</a>
       </div>
       <p class="hero-taxonomy">People <span>/</span> Systems <span>/</span> Ideas <span>/</span> Impact</p>
     </div>
     <div class="hero-art reveal" style="--delay: 120ms">
       <PathHero />
     </div>
-  </section>
-
-  <section class="focus-strip" aria-labelledby="focus-heading">
-    <h2 id="focus-heading" class="sr-only">Areas of focus</h2>
-    {focus.map(([type, title, text]) => (
-      <article class="focus-item reveal">
-        <FocusIcon type={type} />
-        <h3>{title}</h3>
-        <p>{text}</p>
-        <a href="/about/" aria-label={`Learn more about ${title}`}>→</a>
-      </article>
-    ))}
   </section>
 
   <section class="writing-preview section-band" aria-labelledby="writing-heading">
@@ -55,4 +43,16 @@ const focus = [
       {writing.map((entry: CollectionEntry<"writing">) => <WritingCard entry={entry} />)}
     </div>
   </section>
+  <section class="focus-strip" aria-labelledby="focus-heading">
+    <h2 id="focus-heading" class="sr-only">Areas of focus</h2>
+    {focus.map(([type, title, text, anchor]) => (
+      <article class="focus-item reveal">
+        <FocusIcon type={type} />
+        <h3>{title}</h3>
+        <p>{text}</p>
+        <a href={`/about/#${anchor}`} aria-label={`Learn more about ${title}`}>→</a>
+      </article>
+    ))}
+  </section>
+
 </BaseLayout>

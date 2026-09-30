@@ -1,5 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import { siteUrl, socialImage, profiles } from "../../lib/site.js";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PathGraphic from "../../components/PathGraphic.astro";
 import WritingCard from "../../components/WritingCard.astro";
@@ -14,9 +15,22 @@ const { entry } = Astro.props;
 const pageEntry: any = entry;
 const { Content } = await render(entry);
 const related = (await getPublishedWriting()).filter((item: any) => item.id !== pageEntry.id).slice(0, 2);
+const canonicalUrl = new URL(`/writing/${pageEntry.id}/`, siteUrl).href;
+const publishedTime = pageEntry.data.date.toISOString();
+const articleData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: pageEntry.data.title,
+  description: pageEntry.data.description,
+  datePublished: publishedTime,
+  author: { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Kevin Mazur", url: `${siteUrl}/about/` },
+  url: canonicalUrl,
+  mainEntityOfPage: canonicalUrl,
+  image: new URL(socialImage, siteUrl).href,
+};
 ---
 
-<BaseLayout title={`${pageEntry.data.title} | Kevin Mazur`} description={pageEntry.data.description} canonical={`/writing/${pageEntry.id}/`} type="article">
+<BaseLayout title={`${pageEntry.data.title} | Kevin Mazur`} description={pageEntry.data.description} canonical={`/writing/${pageEntry.id}/`} type="article" publishedTime={publishedTime} articleData={articleData}>
   <article class="article-page">
     <header class="article-header section-band">
       <p class="kicker">Writing <span>/</span> {formatDate(pageEntry.data.date)} <span>/</span> {readingTime(pageEntry.body)}</p>
@@ -31,6 +45,14 @@ const related = (await getPublishedWriting()).filter((item: any) => item.id !== 
       <Content />
     </div>
   </article>
+  <aside class="article-discussion" aria-label="Continue the conversation">
+    <p>Have a different experience? I’d like to hear it.</p>
+    <div class="contact-links">
+      <a href={profiles.linkedin}>Find me on LinkedIn.</a>
+      <a href={profiles.threads}>Find me on Threads.</a>
+      <a href="mailto:hello@kevinmazur.dev">Email Kevin.</a>
+    </div>
+  </aside>
   {related.length > 0 && (
     <section class="related-section section-band" aria-labelledby="related-heading">
       <div class="section-intro">

@@ -1,7 +1,7 @@
 ---
 title: "A Place to Think Out Loud"
 date: 2026-09-15
-description: "An introduction to Kevin Mazur’s writing on AI, public service, building software, and how his thinking changes through practice."
+description: "Why I’m writing about AI, public service, and the systems I’m learning to build—and leaving room for my thinking to change."
 topics:
   - "Artificial Intelligence"
   - "Government"

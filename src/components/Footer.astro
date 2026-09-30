@@ -1,4 +1,5 @@
 ---
+import { profiles } from "../lib/site.js";
 const year = new Date().getFullYear();
 ---
 
@@ -17,7 +18,11 @@ const year = new Date().getFullYear();
       <h2>Always open to good conversations.</h2>
       <p>Technology, AI, automation, leadership, or what's next.</p>
     </div>
-    <a class="button button-primary" href="mailto:hello@kevinmazur.dev">Let's Connect <span aria-hidden="true">→</span></a>
+    <div class="footer-contact">
+      <a class="button button-primary" href="mailto:hello@kevinmazur.dev">Email Kevin <span aria-hidden="true">→</span></a>
+      <p>hello@kevinmazur.dev</p>
+      <div class="contact-links"><a href={profiles.linkedin}>LinkedIn</a><a href={profiles.threads}>Threads</a></div>
+    </div>
   </div>
   <div class="footer-bottom">
     <span>© {year} Kevin Mazur</span>

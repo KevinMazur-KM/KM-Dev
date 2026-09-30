@@ -14,6 +14,6 @@ const writing = await getPublishedWriting();
     <p>I write about the problems I’m working through, the choices I make, and what I learn when those choices meet the real world. Some ideas are settled. Others are still taking shape.</p>
   </section>
   <section class="index-grid writing-index-grid section-band">
-    {writing.map((entry: CollectionEntry<"writing">) => <WritingCard entry={entry} />)}
+    {writing.map((entry: CollectionEntry<"writing">) => <WritingCard entry={entry} headingLevel="h2" />)}
   </section>
 </BaseLayout>

@@ -1,7 +1,7 @@
 ---
 title: "Why an AI Interviews Me Before I Write Anything"
 date: 2026-09-21
-description: "How an AI interview helps turn ideas into finished writing, with Cooper handling the conversation and Gutenberg handling publication."
+description: "I struggle to turn ideas into finished writing. An AI interviewer helps me work through them, and a separate agent handles publication."
 topics:
   - "Artificial Intelligence"
   - "Writing"
@@ -33,11 +33,11 @@ That split wasn't the original plan. I started out wanting one agent to do all o
 
 The obvious objection, and one Cooper raised while interviewing me for this piece, is that organizing ideas is part of thinking. If AI decides the order, what gets cut, and how one point leads to the next, am I really keeping the thinking human?
 
-I think I am. The ideas and the argument are mine. The order is the structure part, and structure is what I'm not good at. There have been times when Cooper didn't get my meaning, and when that happens I work through it the same way I would with a co-worker. I tell it what I actually meant and we go again. The call on whether something says what I mean stays with me.
+I think I am, but I don’t think the distinction is perfectly clean. Changing the order can change the emphasis, and leaving something out can change the argument. The ideas start with me, but I still have to decide whether the finished piece says what I mean. There have been times when Cooper didn’t get my meaning. When that happens, I explain it the way I would to a co-worker, and we go again.
 
 ## Where I've landed, for now
 
-I vibe code a lot, and a lot of that is blind. AI produces things and I don't watch every line. I'm fine with that when it's behind the scenes. Writing that represents me is different, and that's where I've found AI most useful when it's doing something other than just producing: asking questions, organizing what I say, and handling the mechanics I'd otherwise use as an excuse not to finish.
+I use AI to build software, and I don’t review every generated line myself. My process includes testing in development, running tests, and occasional review by others. That leaves a question I need to take seriously: how do I know that what it produces is sound? With writing, the responsibility is easier for me to see. I have to read the finished piece and decide whether it says what I mean. AI has been most useful here when it asks questions, organizes what I say, and handles the mechanics I’d otherwise use as an excuse not to finish.
 
 If I had to put a rule on it, I'd say an AI agent has to start clearly defined, with the guardrails set, and then grow within them. Cooper is the example. It started as an article interviewer and is now a writing partner for almost everything I write. The guardrails didn't go away. The role just got bigger inside them.
 
