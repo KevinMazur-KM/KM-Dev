@@ -25,7 +25,9 @@ const articleData = {
   datePublished: publishedTime,
   author: { "@type": "Person", "@id": `${siteUrl}/#person`, name: "Kevin Mazur", url: `${siteUrl}/about/` },
   url: canonicalUrl,
-  mainEntityOfPage: canonicalUrl,
+  mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` },
+  inLanguage: "en-US",
+  isPartOf: { "@id": `${siteUrl}/#website` },
   image: new URL(socialImage, siteUrl).href,
 };
 ---
@@ -33,7 +35,7 @@ const articleData = {
 <BaseLayout title={`${pageEntry.data.title} | Kevin Mazur`} description={pageEntry.data.description} canonical={`/writing/${pageEntry.id}/`} type="article" publishedTime={publishedTime} articleData={articleData}>
   <article class="article-page">
     <header class="article-header section-band">
-      <p class="kicker">Writing <span>/</span> {formatDate(pageEntry.data.date)} <span>/</span> {readingTime(pageEntry.body)}</p>
+      <p class="kicker">Writing <span>/</span> <time datetime={publishedTime}>{formatDate(pageEntry.data.date)}</time> <span>/</span> {readingTime(pageEntry.body)}</p>
       <div class="article-title-block">
         <h1>{pageEntry.data.title}</h1>
         <p>{pageEntry.data.description}</p>

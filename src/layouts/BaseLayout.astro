@@ -5,12 +5,14 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const {
-  title = "Kevin Mazur | Technology, AI, Automation",
-  description = "Kevin Mazur builds and leads practical technology systems for AI, automation, and organizational transformation.",
+  title = "Kevin Mazur | Technology Leadership, GIS & AI",
+  description = "Kevin Mazur leads enterprise technology in public service and writes about GIS, responsible AI adoption, automation, and building practical software.",
   canonical = Astro.url.pathname,
   publishedTime,
   articleData,
   type = "website",
+  noindex = false,
+  pageType = "WebPage",
 } = Astro.props;
 
 const canonicalUrl = new URL(canonical, siteUrl).toString();
@@ -21,16 +23,26 @@ const imageUrl = new URL(socialImage, siteUrl).toString();
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-REYTE2ZKG0"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-REYTE2ZKG0');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="Kevin Mazur" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalUrl} />
@@ -48,6 +60,29 @@ const imageUrl = new URL(socialImage, siteUrl).toString();
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
     {articleData && <script type="application/ld+json" set:html={JSON.stringify(articleData).replace(/</g, "\\u003c")} />}
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${siteUrl}/#website`,
+          url: `${siteUrl}/`,
+          name: "Kevin Mazur",
+          inLanguage: "en-US",
+          publisher: { "@id": `${siteUrl}/#person` },
+        },
+        {
+          "@type": pageType,
+          "@id": `${canonicalUrl}#webpage`,
+          url: canonicalUrl,
+          name: title,
+          description,
+          inLanguage: "en-US",
+          isPartOf: { "@id": `${siteUrl}/#website` },
+          ...(pageType === "ProfilePage" ? { mainEntity: { "@id": `${siteUrl}/#person` } } : {}),
+        },
+      ],
+    }).replace(/</g, "\\u003c")} />}
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
